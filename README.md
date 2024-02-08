@@ -2,6 +2,9 @@
 
 This project is a multi-select component built with React and TypeScript. It uses the Vite build tool and the Headless UI library for the UI components.
 
+## Demo
+[multi-select-iota.vercel.app
+](https://multi-select-iota.vercel.app/)
 ## Features
 
 - **Selection**: You can select an active character by pressing the Enter key. The same action also allows you to deselect a previously selected character.
