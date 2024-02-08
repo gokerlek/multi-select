@@ -18,18 +18,15 @@ export const useSearchCharacters = ({ query }: UseSearchProps) => {
   const { results } = (data as { results: Character[] }) ?? { results: [] };
 
   useEffect(() => {
-    setCharacters(results);
-  }, [results]);
-
-  useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedQuery(query);
+      setCharacters(results);
     }, 500);
 
     return () => {
       clearTimeout(handler);
     };
-  }, [query]);
+  }, [query, results]);
 
   return { characters, error, loading };
 };
