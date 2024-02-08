@@ -21,8 +21,12 @@ export const MultiSelect: FC<MultiSelectProps> = ({
   loading,
   error,
 }) => {
-  const { handleCharacterClick, selectedCharacters, setSelectedCharacters } =
-    useMultiSelectActions();
+  const {
+    handleCharacterClick,
+    handleKeyDown,
+    selectedCharacters,
+    setSelectedCharacters,
+  } = useMultiSelectActions();
 
   const ref = useRef<HTMLUListElement>(null);
 
@@ -43,7 +47,7 @@ export const MultiSelect: FC<MultiSelectProps> = ({
         >
           <SelectedList
             selectedCharacters={selectedCharacters}
-            updateSelectedCharacters={handleCharacterClick}
+            handleCharacterClick={handleCharacterClick}
           />
 
           <Combobox.Input
@@ -52,6 +56,7 @@ export const MultiSelect: FC<MultiSelectProps> = ({
             onChange={(e) => {
               setQuery(e.target.value);
             }}
+            onKeyDown={handleKeyDown}
           />
 
           <ArrowButton />
